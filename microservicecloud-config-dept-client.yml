@@ -1,7 +1,7 @@
 spring: 
   profiles: 
-  active: 
-  - dev
+    active: 
+    - dev
 ---
 server:
   port: 8001
@@ -87,3 +87,9 @@ info:
   company.name: www.moli.com
   build.artifactId: @project.artifactId@
   build.version: @project.version@
+#springboot2.0版本要想实现hystrix监控必须在需要监控的微服务中配置endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
